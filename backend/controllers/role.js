@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
 const Role = require("../models/role");
+const mongoose = require("mongoose");
 
 const registerRole = async (req, res) => {
   if (!req.body.name || !req.body.description)

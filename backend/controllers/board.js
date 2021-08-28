@@ -31,8 +31,8 @@ const saveTaskImg = async (req, res) => {
   if (!req.body.name || !req.body.description)
     return res.status(400).send("Incomplete data");
 
-  console.log(req.files); 
-  let imageUrl = ""; //http://localhost:3001/uploads/23658538.png      
+  //console.log(req.files);
+  let imageUrl = ""; //http://localhost:3001/uploads/23658538.png        -   C:/user/desktop/js.png
   if (req.files !== undefined && req.files.image.type) {
     let url = req.protocol + "://" + req.get("host") + "/";
     let serverImg =
