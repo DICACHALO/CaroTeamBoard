@@ -79,7 +79,7 @@ const deleteTask = async (req, res) => {
 
   let board = await Board.findByIdAndDelete(req.params._id);
   if (!board) return res.status(400).send("Task not found");
-  return res.status(200).send("Task deleted");
+  return res.status(200).send({ message: "Task deleted"}); //Enviar los mensajes como un JSON
 };
 
 module.exports = { saveTask, listTask, updateTask, deleteTask, saveTaskImg };

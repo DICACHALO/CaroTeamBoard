@@ -1,1 +1,67 @@
-<p>list-task works!</p>
+<div class="bgComponent">
+  <div class="accordion_display">
+    <div class="accordion_size">
+      <mat-accordion multi="true" *ngIf="taskData.length">
+        <mat-expansion-panel *ngFor="let task of taskData" hideToggle="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <span>{{ task.name }}</span>
+              <span class="spacer"></span>
+              <button
+                class="btnDone"
+                *ngIf="task.taskStatus == 'done'"
+                mat-raised-button
+              >
+                {{ task.taskStatus }}
+              </button>
+              <button
+                class="btnInProgress"
+                *ngIf="task.taskStatus == 'in-progress'"
+                mat-raised-button
+              >
+                {{ task.taskStatus }}
+              </button>
+              <button
+                class="btnToDo"
+                *ngIf="task.taskStatus == 'to-do'"
+                mat-raised-button
+              >
+                {{ task.taskStatus }}
+              </button>
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            {{ task.description }}
+          </mat-panel-description>
+          <mat-action-row>
+            <button
+              class="btnSelectTodo"
+              mat-button
+              (click)="updateTask(task, 'to-do')"
+            >
+              to-do
+            </button>
+            <button
+              class="btnSelectInProgress"
+              mat-button
+              (click)="updateTask(task, 'in-progress')"
+            >
+              In-progress
+            </button>
+            <button
+              class="btnSelectDone"
+              mat-button
+              (click)="updateTask(task, 'done')"
+            >
+              done
+            </button>
+            <span class="spacer"></span>
+            <mat-icon color="primary" (click)="deleteTask(task)"
+              >delete</mat-icon
+            >
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+</div>
