@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
-
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   private env: string;
-  constructor(private _http: HttpClient) {
+  constructor(private _http: HttpClient, private _router: Router) {
     this.env = environment.APP_URL;
   }
 
@@ -20,5 +20,21 @@ export class UserService {
 
   login(user: any) {
     return this._http.post<any>(this.env + 'user/login', user);
+  }
+
+  // Para saber si un uusario está logueado o no
+  loggedIn() {
+    //Validación solo cuando quiero saber si es true o false
+    return !!localStorage.getItem('token');
+  }
+
+  // Para obtener el token que está guardado
+  getToken() {
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this._router.navigate(['/login']);
   }
 }
