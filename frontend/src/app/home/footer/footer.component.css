@@ -1,7 +1,7 @@
 .bgFooter {
     background-color: #383d38;
     color: #cecccc;
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
   }
