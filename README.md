@@ -1,4 +1,4 @@
 # CaroTeamBoard
 Project MEAN STACK
 
-See wiki [LINK](https://github.com/DICACHALO/CaroTeamBoard/wiki)
+See wiki [here](https://github.com/DICACHALO/CaroTeamBoard/wiki)
